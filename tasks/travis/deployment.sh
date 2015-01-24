@@ -14,7 +14,7 @@ fi
 # production hosts for web servers
 if [[ $TRAVIS_BRANCH == 'production' ]]
 then
-  SERVER_HOST="54.186.35.63"
+  SERVER_HOST="ec2-54-148-145-218.us-west-2.compute.amazonaws.com"
   SSH_FLAG=" -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no "
   echo "Pushing changes to $SERVER_HOST"
   rsync -azhe "ssh $SSH_FLAG -i ./tasks/travis/aws.pem" ./ ec2-user@$SERVER_HOST:~/$PACKAGE/
