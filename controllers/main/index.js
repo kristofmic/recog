@@ -7,5 +7,5 @@ router.get('/health', getHealth);
 module.exports = router;
 
 function getHealth(req, res) {
-  res.status(200).json({});
+  res.status(200).json({status: 'alive'});
 }
