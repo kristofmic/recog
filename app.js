@@ -2,7 +2,7 @@ var
   path = require('path'),
   express = require('express'),
   nconf = require('nconf'),
-  confPath = './config/' + process.env.NODE_ENV || 'localhost' + '.json',
+  confPath = './config/' + (process.env.NODE_ENV || 'localhost') + '.json',
   app = express(),
 
   controllers = require('./controllers'),
