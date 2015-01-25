@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 var
   app = require('../app'),
+  ngonf = require('nconf'),
   server;
 
 app.set('port', process.env.PORT || 3000);
