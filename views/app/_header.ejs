@@ -12,14 +12,10 @@
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
+    <% if (process.env.NODE_ENV === 'production') { %>
+      <link rel="stylesheet" href="css/app.min.35fc9897.css">
+    <% } else { %>
+      <link rel="stylesheet" href="css/app.css">
+    <% } %>
   </head>
   <body>
-    <h1><%= message %></h1>
-    <h2><%= error.status %></h2>
-
-    <% if (process.env.NODE_ENV !== 'production') { %>
-      <pre><%= error.stack %></pre>
-    <% } %>
-
-  </body>
-</html>
