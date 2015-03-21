@@ -1,12 +1,10 @@
 html {
   body {
-    -webkit-backface-visibility: hidden;
     background-color: $gray-light;
-    overflow: initial;
     position: relative;
 
-    &.toggle {
-      overflow: hidden;
+    .container {
+      padding: 15px;
     }
   }
 }
