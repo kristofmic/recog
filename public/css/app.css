@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700);
-@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300);
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 body {
   font-family: 'Roboto', HelveticaNeue, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
   font-weight: 400;
@@ -15,11 +15,11 @@ body button, body input, body select, body textarea, body .form-control {
 }
 
 h1, h2, h3 {
-  font-family: 'Roboto Slab', HelveticaNeue, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: 'Montserrat', HelveticaNeue, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
 }
 
 h4, h5, h6 {
-  font-family: 'Roboto Slab', HelveticaNeue, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: 'Montserrat', HelveticaNeue, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
   line-height: 20px;
 }
 
@@ -28,11 +28,11 @@ h4, h5, h6 {
 }
 
 .text-primary {
-  color: #E91E63 !important;
+  color: #1DE9B6 !important;
 }
 
 .text-success {
-  color: #3F51B5 !important;
+  color: #1E88E5 !important;
 }
 
 .text-muted {
@@ -51,11 +51,142 @@ i, .fa {
 }
 
 html body {
-  background-color: #FAFAFA;
+  background-color: #FFF;
   position: relative;
 }
 html body .container {
   padding: 15px;
+}
+
+input, select, textarea, .form-control {
+  -webkit-transition: border-color .15s ease-out;
+  -moz-transition: border-color .15s ease-out;
+  transition: border-color .15s ease-out;
+  border-radius: 1px;
+}
+input:-webkit-autofill, select:-webkit-autofill, textarea:-webkit-autofill, .form-control:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 50px #FFF inset;
+}
+input:-webkit-autofill:focus, select:-webkit-autofill:focus, textarea:-webkit-autofill:focus, .form-control:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 50px #FFF inset;
+}
+input:focus, select:focus, textarea:focus, .form-control:focus {
+  border-color: #1E88E5;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+input ::-webkit-input-placeholder, select ::-webkit-input-placeholder, textarea ::-webkit-input-placeholder, .form-control ::-webkit-input-placeholder {
+  color: #9E9E9E;
+}
+input :-moz-placeholder, select :-moz-placeholder, textarea :-moz-placeholder, .form-control :-moz-placeholder {
+  /* Firefox 18- */
+  color: #9E9E9E;
+}
+input ::-moz-placeholder, select ::-moz-placeholder, textarea ::-moz-placeholder, .form-control ::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #9E9E9E;
+}
+input :-ms-input-placeholder, select :-ms-input-placeholder, textarea :-ms-input-placeholder, .form-control :-ms-input-placeholder {
+  color: #9E9E9E;
+}
+
+.input-group {
+  width: 100%;
+  /*  @media (max-width: $phone) {
+      .form-group {
+        width: 60%;
+      }
+  
+      button, .btn, input[type="submit"] {
+        width: 40%;
+      }
+    }*/
+}
+.input-group .form-group {
+  width: 80%;
+  margin: 0;
+}
+.input-group .form-group input, .input-group .form-group select, .input-group .form-group textarea, .input-group .form-group .form-control {
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  width: 100%;
+}
+.input-group button, .input-group .btn, .input-group input[type="submit"] {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  width: 20%;
+}
+
+button, .btn {
+  border-radius: 1px;
+  vertical-align: middle;
+  outline: none;
+  -webkit-transition: all .15s ease-out;
+  -moz-transition: all .15s ease-out;
+  transition: all .15s ease-out;
+}
+button.btn-primary, .btn.btn-primary {
+  background-color: #1E88E5;
+  border-color: transparent;
+  border-bottom-color: #1878cd;
+}
+button.btn-primary:hover, button.btn-primary:focus, .btn.btn-primary:hover, .btn.btn-primary:focus {
+  background-color: #3997e8;
+  outline: none;
+}
+button.btn-primary:active, .btn.btn-primary:active {
+  border-bottom-color: transparent;
+}
+
+.search {
+  -webkit-transition: -webkit-transform .3s ease-in;
+  -moz-transition: -moz-transform .3s ease-in;
+  transition: transform .3s ease-in;
+  -webkit-transform: translateY(250px);
+  -moz-transform: translateY(250px);
+  transform: translateY(250px);
+}
+.search .logo {
+  position: absolute;
+  top: -97px;
+  left: 50%;
+  margin-left: -83.5px;
+}
+.search.do-search {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.do-search-logo-leave {
+  -webkit-transition: opacity .3s ease-in, -webkit-transform .3s ease-in;
+  -moz-transition: opacity .3s ease-in, -moz-transform .3s ease-in;
+  transition: opacity .3s ease-in, transform .3s ease-in;
+  opacity: 1;
+}
+.do-search-logo-leave.do-search-logo-leave-active {
+  opacity: 0;
+  -webkit-transform: scale(0.8, 0.8);
+  -moz-transform: scale(0.8, 0.8);
+  transform: scale(0.8, 0.8);
+}
+
+.do-search-toolbar-enter {
+  -webkit-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+  transition-delay: .13s;
+  -webkit-transform: scale(0, 0);
+  -moz-transform: scale(0, 0);
+  transform: scale(0, 0);
+  opacity: 0;
+}
+.do-search-toolbar-enter.do-search-toolbar-enter-active {
+  -webkit-transform: scale(1, 1);
+  -moz-transform: scale(1, 1);
+  transform: scale(1, 1);
+  opacity: 1;
 }
 
 /*# sourceMappingURL=app.css.map */

@@ -1,0 +1,24 @@
+button, .btn {
+  border-radius: 1px;
+  vertical-align: middle;
+  outline: none;
+
+  -webkit-transition: all .15s ease-out;
+  -moz-transition: all .15s ease-out;
+  transition: all .15s ease-out;
+
+  &.btn-primary {
+    background-color: $primary;
+    border-color: transparent;
+    border-bottom-color: darken($primary, 6%);
+
+    &:hover, &:focus {
+      background-color: lighten($primary, 6%);
+      outline: none;
+    }
+
+    &:active {
+      border-bottom-color: transparent;
+    }
+  }
+}

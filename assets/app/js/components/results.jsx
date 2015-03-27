@@ -52,7 +52,7 @@ Results = React.createClass({
     }
 
     return (
-      <div>{results}</div>
+      <div>{/*results*/}</div>
     );
   }
 });

@@ -21,15 +21,16 @@ Search = React.createClass({
 
   render () {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="email" className="sr-only" >Enter an email address</label>
-          <input type="text" className="form-control" id="email" ref="searchInput" autoFocus placeholder="Email address"/>
+      <form className="form-inline" onSubmit={this.handleSubmit}>
+        <div className="input-group">
+          <div className="form-group">
+            <label htmlFor="email" className="sr-only" >Enter an email address</label>
+            <input type="text" className="form-control" id="email" ref="searchInput" autoFocus placeholder="Email address"/>
+          </div>
+          <button type="submit" className="btn btn-primary">
+            <i className="glyphicon glyphicon-search" style={{fontSize: 16, verticalAlign: 'middle'}}></i>
+          </button>
         </div>
-        <button type="submit" className="btn btn-default center-block">
-          <i className="glyphicon glyphicon-search" style={{fontSize: '12px', margin: '0 4px'}}></i>
-          Search
-        </button>
       </form>
     );
   }

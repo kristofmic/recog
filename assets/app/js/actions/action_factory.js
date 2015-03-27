@@ -28,9 +28,7 @@ function searchAction (data) {
     };
 
   ajax(req)
-    .then((res) => {
-      if (res.status === 200) return res.data;
-    })
+    .then((res) => { if (res.status === 200) return res.data; })
     .then((resData) => {
       assign(resData, data);
 
