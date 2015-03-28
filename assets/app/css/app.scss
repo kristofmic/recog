@@ -6,9 +6,9 @@
 @import './partials/_buttons';
 
 .search {
-  -webkit-transition: -webkit-transform .3s ease-in;
-  -moz-transition: -moz-transform .3s ease-in;
-  transition: transform .3s ease-in;
+  -webkit-transition: -webkit-transform .2s ease-in;
+  -moz-transition: -moz-transform .2s ease-in;
+  transition: transform .2s ease-in;
 
   -webkit-transform: translateY(250px);
   -moz-transform: translateY(250px);
@@ -25,13 +25,75 @@
     -webkit-transform: translateY(0);
     -moz-transform: translateY(0);
     transform: translateY(0);
+
+    form {
+      input.form-control {
+        -webkit-transition: all .15s ease-out;
+        -moz-transition: all .15s ease-out;
+        transition: all .15s ease-out;
+
+        -webkit-transition-delay: .16s;
+        -moz-transition-delay: .16s;
+        transition-delay: .16s;
+
+        background-color: $white9;
+        border-color: transparent;
+        box-shadow: none;
+        color: $white;
+        font-size: 18px;
+
+        &::-webkit-input-placeholder {
+           color: $white54;
+        }
+
+        &:-moz-placeholder { /* Firefox 18- */
+           color: $white54;
+        }
+
+        &::-moz-placeholder {  /* Firefox 19+ */
+           color: $white54;
+        }
+
+        &:-ms-input-placeholder {
+           color: $white54;
+        }
+
+        &:focus {
+          background-color: $white26;
+        }
+      }
+
+      .btn {
+        -webkit-transition-delay: .16s;
+        -moz-transition-delay: .16s;
+        transition-delay: .16s;
+
+        background-color: transparent;
+        border-bottom-color: transparent;
+        cursor: default;
+
+        i {
+          -webkit-transition: -webkit-transform .15s ease-out;
+          -moz-transition: -moz-transform .15s ease-out;
+          transition: transform .15s ease-out;
+
+          -webkit-transition-delay: .16s;
+          -moz-transition-delay: .16s;
+          transition-delay: .16s;
+
+          -webkit-transform: scale(1.2, 1.2);
+          -moz-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+        }
+      }
+    }
   }
 }
 
 .do-search-logo-leave {
-  -webkit-transition: opacity .3s ease-in, -webkit-transform .3s ease-in;
-  -moz-transition: opacity .3s ease-in, -moz-transform .3s ease-in;
-  transition: opacity .3s ease-in, transform .3s ease-in;
+  -webkit-transition: opacity .2s ease-in, -webkit-transform .2s ease-in;
+  -moz-transition: opacity .2s ease-in, -moz-transform .2s ease-in;
+  transition: opacity .2s ease-in, transform .2s ease-in;
 
   opacity: 1;
 
@@ -45,10 +107,13 @@
 }
 
 .do-search-toolbar-enter {
-  -webkit-transition: all .3s ease-in;
-  -moz-transition: all .3s ease-in;
-  transition: all .3s ease-in;
-  transition-delay: .13s;
+  -webkit-transition: all .2s ease-in;
+  -moz-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+
+  -webkit-transition-delay: .1s;
+  -moz-transition-delay: .1s;
+  transition-delay: .1s;
 
   -webkit-transform: scale(0, 0);
   -moz-transform: scale(0, 0);

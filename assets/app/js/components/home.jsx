@@ -6,7 +6,22 @@ var
   Toolbar = require('./toolbar'),
   { SEARCH_ACTION } = require('../constants'),
   dispatcher = require('../dispatcher'),
+  h1Style,
+  h2Style,
   Home;
+
+h1Style = {
+  fontSize: 52,
+  color: '#1E88E5',
+  textAlign: 'center',
+  textShadow: '0 1px 1px rgba(0, 0, 0, .12)'
+};
+
+h2Style = {
+  fontSize: 16,
+  margin: '-20px 0 10px -36px',
+  textAlign: 'center'
+};
 
 Home = React.createClass({
   propTypes: {},
@@ -34,8 +49,8 @@ Home = React.createClass({
     if (!this.state.doSearch) {
       logo = (
         <div className="logo">
-          <h1 style={{fontSize: 52, color: '#1E88E5', textAlign: 'center'}}>Recog</h1>
-          <h4 style={{fontSize: 16, margin: '-20px 0 10px -36px', textAlign: 'center'}}>
+          <h1 style={h1Style}>Recog</h1>
+          <h4 style={h2Style}>
             <small style={{color: '#9E9E9E'}}>Profile image search</small>
           </h4>
         </div>
@@ -48,9 +63,9 @@ Home = React.createClass({
 
     return (
       <div>
-      <ReactCSSTransitionGroup transitionName="do-search-toolbar">
-        {toolbar}
-      </ReactCSSTransitionGroup>
+        <ReactCSSTransitionGroup transitionName="do-search-toolbar">
+          {toolbar}
+        </ReactCSSTransitionGroup>
         <div className={containerClass}>
           <ReactCSSTransitionGroup transitionName="do-search-logo">
             {logo}

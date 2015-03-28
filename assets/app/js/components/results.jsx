@@ -28,8 +28,8 @@ Results = React.createClass({
 
     if (this.state.query && this.state.url) {
       results = (
-        <div>
-          <h4>Results</h4>
+        <div style={{marginTop: 30}}>
+          <h4 style={{color: '#00BFA5'}}>Results</h4>
           <div className="panel panel-default">
             <div className="panel-body">
               <img src={this.state.url} class="img-thumbnail" />
@@ -52,7 +52,7 @@ Results = React.createClass({
     }
 
     return (
-      <div>{/*results*/}</div>
+      <div>{results}</div>
     );
   }
 });

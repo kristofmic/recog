@@ -86,7 +86,22 @@ var _require = require("../constants");
 
 var SEARCH_ACTION = _require.SEARCH_ACTION;
 var dispatcher = require("../dispatcher");
+var h1Style;
+var h2Style;
 var Home;
+
+h1Style = {
+  fontSize: 52,
+  color: "#1E88E5",
+  textAlign: "center",
+  textShadow: "0 1px 1px rgba(0, 0, 0, .12)"
+};
+
+h2Style = {
+  fontSize: 16,
+  margin: "-20px 0 10px -36px",
+  textAlign: "center"
+};
 
 Home = React.createClass({ displayName: "Home",
   propTypes: {},
@@ -111,7 +126,7 @@ Home = React.createClass({ displayName: "Home",
         logo;
 
     if (!this.state.doSearch) {
-      logo = React.createElement("div", { className: "logo" }, React.createElement("h1", { style: { fontSize: 52, color: "#1E88E5", textAlign: "center" } }, "Recog"), React.createElement("h4", { style: { fontSize: 16, margin: "-20px 0 10px -36px", textAlign: "center" } }, React.createElement("small", { style: { color: "#9E9E9E" } }, "Profile image search")));
+      logo = React.createElement("div", { className: "logo" }, React.createElement("h1", { style: h1Style }, "Recog"), React.createElement("h4", { style: h2Style }, React.createElement("small", { style: { color: "#9E9E9E" } }, "Profile image search")));
     } else {
       containerClass += " do-search";
       toolbar = React.createElement(Toolbar, null);
@@ -173,10 +188,10 @@ Results = React.createClass({ displayName: "Results",
     var results;
 
     if (this.state.query && this.state.url) {
-      results = React.createElement("div", null, React.createElement("h4", null, "Results"), React.createElement("div", { className: "panel panel-default" }, React.createElement("div", { className: "panel-body" }, React.createElement("img", { src: this.state.url, "class": "img-thumbnail" }), React.createElement("p", null, this.state.query), React.createElement("div", null, React.createElement("button", { type: "button", className: "btn btn-default" }, React.createElement("i", { className: "glyphicon glyphicon-copy" })), React.createElement("button", { type: "button", className: "btn btn-default" }, React.createElement("i", { className: "glyphicon glyphicon-floppy-save" })), React.createElement("button", { type: "button", className: "btn btn-default" }, React.createElement("i", { className: "glyphicon glyphicon-new-window" }))))));
+      results = React.createElement("div", { style: { marginTop: 30 } }, React.createElement("h4", { style: { color: "#00BFA5" } }, "Results"), React.createElement("div", { className: "panel panel-default" }, React.createElement("div", { className: "panel-body" }, React.createElement("img", { src: this.state.url, "class": "img-thumbnail" }), React.createElement("p", null, this.state.query), React.createElement("div", null, React.createElement("button", { type: "button", className: "btn btn-default" }, React.createElement("i", { className: "glyphicon glyphicon-copy" })), React.createElement("button", { type: "button", className: "btn btn-default" }, React.createElement("i", { className: "glyphicon glyphicon-floppy-save" })), React.createElement("button", { type: "button", className: "btn btn-default" }, React.createElement("i", { className: "glyphicon glyphicon-new-window" }))))));
     }
 
-    return React.createElement("div", null /*results*/);
+    return React.createElement("div", null, results);
   }
 });
 
@@ -200,7 +215,14 @@ var React = require("react");
 var _require = require("../actions/action_factory");
 
 var searchAction = _require.searchAction;
+var searchIconStyle;
 var Search;
+
+searchIconStyle = {
+  fontSize: 16,
+  verticalAlign: "middle",
+  textShadow: "0 1px 1px rgba(0, 0, 0, .12)"
+};
 
 Search = React.createClass({ displayName: "Search",
   propTypes: {},
@@ -214,8 +236,12 @@ Search = React.createClass({ displayName: "Search",
     searchAction({ query: query });
   },
 
+  componentDidUpdate: function componentDidUpdate() {
+    this.refs.searchInput.getDOMNode().blur();
+  },
+
   render: function render() {
-    return React.createElement("form", { className: "form-inline", onSubmit: this.handleSubmit }, React.createElement("div", { className: "input-group" }, React.createElement("div", { className: "form-group" }, React.createElement("label", { htmlFor: "email", className: "sr-only" }, "Enter an email address"), React.createElement("input", { type: "text", className: "form-control", id: "email", ref: "searchInput", autoFocus: true, placeholder: "Email address" })), React.createElement("button", { type: "submit", className: "btn btn-primary" }, React.createElement("i", { className: "glyphicon glyphicon-search", style: { fontSize: 16, verticalAlign: "middle" } }))));
+    return React.createElement("form", { className: "form-inline", onSubmit: this.handleSubmit }, React.createElement("div", { className: "input-group" }, React.createElement("div", { className: "form-group" }, React.createElement("label", { htmlFor: "email", className: "sr-only" }, "Enter an email address"), React.createElement("input", { type: "text", className: "form-control", id: "email", ref: "searchInput", autoFocus: true, autoComplete: "off", placeholder: "Email address" })), React.createElement("button", { type: "submit", className: "btn btn-primary" }, React.createElement("i", { className: "glyphicon glyphicon-search", style: searchIconStyle }))));
   }
 });
 
@@ -225,11 +251,29 @@ module.exports = Search;
 "use strict";
 
 var React = require("react"),
+    toolbarStyle,
+    h2Style,
     Toolbar;
+
+toolbarStyle = {
+  boxShadow: "0 3px 8px rgba(0, 0, 0, .26)",
+  position: "fixed",
+  top: 0,
+  left: 0,
+  width: "100%",
+  backgroundColor: "#1E88E5",
+  padding: "15px"
+};
+
+h2Style = {
+  textShadow: "0 1px 1px rgba(0, 0, 0, .12)",
+  color: "#FFF",
+  margin: 0
+};
 
 Toolbar = React.createClass({ displayName: "Toolbar",
   render: function render() {
-    return React.createElement("div", { className: "toolbar", style: { position: "fixed", top: 0, left: 0, width: "100%", backgroundColor: "#1E88E5", padding: "15px" } }, React.createElement("div", { className: "toolbar-right" }), React.createElement("div", { className: "toolbar-main" }, React.createElement("h2", { style: { color: "#fff", margin: 0 } }, "Recog")));
+    return React.createElement("div", { className: "toolbar", style: toolbarStyle }, React.createElement("div", { className: "toolbar-right" }), React.createElement("div", { className: "toolbar-main" }, React.createElement("h2", { style: h2Style }, "Recog")));
   }
 });
 

@@ -4,13 +4,6 @@ input, select, textarea, .form-control {
   transition: border-color .15s ease-out;
 
   border-radius: 1px;
-  &:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 50px $white inset;
-
-    &:focus {
-      -webkit-box-shadow: 0 0 0 50px $white inset;
-    }
-  }
 
   &:focus {
     border-color: $primary;
@@ -38,7 +31,7 @@ input, select, textarea, .form-control {
 .input-group {
   width: 100%;
   .form-group {
-    width: 80%;
+    width: 90%;
     margin: 0;
 
     input, select, textarea, .form-control {
@@ -52,7 +45,7 @@ input, select, textarea, .form-control {
   button, .btn, input[type="submit"] {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    width: 20%;
+    width: 10%;
   }
 
 /*  @media (max-width: $phone) {

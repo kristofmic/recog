@@ -64,12 +64,6 @@ input, select, textarea, .form-control {
   transition: border-color .15s ease-out;
   border-radius: 1px;
 }
-input:-webkit-autofill, select:-webkit-autofill, textarea:-webkit-autofill, .form-control:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 50px #FFF inset;
-}
-input:-webkit-autofill:focus, select:-webkit-autofill:focus, textarea:-webkit-autofill:focus, .form-control:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0 50px #FFF inset;
-}
 input:focus, select:focus, textarea:focus, .form-control:focus {
   border-color: #1E88E5;
   -webkit-box-shadow: none;
@@ -103,7 +97,7 @@ input :-ms-input-placeholder, select :-ms-input-placeholder, textarea :-ms-input
     }*/
 }
 .input-group .form-group {
-  width: 80%;
+  width: 90%;
   margin: 0;
 }
 .input-group .form-group input, .input-group .form-group select, .input-group .form-group textarea, .input-group .form-group .form-control {
@@ -115,7 +109,7 @@ input :-ms-input-placeholder, select :-ms-input-placeholder, textarea :-ms-input
 .input-group button, .input-group .btn, .input-group input[type="submit"] {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  width: 20%;
+  width: 10%;
 }
 
 button, .btn {
@@ -140,9 +134,9 @@ button.btn-primary:active, .btn.btn-primary:active {
 }
 
 .search {
-  -webkit-transition: -webkit-transform .3s ease-in;
-  -moz-transition: -moz-transform .3s ease-in;
-  transition: transform .3s ease-in;
+  -webkit-transition: -webkit-transform .2s ease-in;
+  -moz-transition: -moz-transform .2s ease-in;
+  transition: transform .2s ease-in;
   -webkit-transform: translateY(250px);
   -moz-transform: translateY(250px);
   transform: translateY(250px);
@@ -158,11 +152,60 @@ button.btn-primary:active, .btn.btn-primary:active {
   -moz-transform: translateY(0);
   transform: translateY(0);
 }
+.search.do-search form input.form-control {
+  -webkit-transition: all .15s ease-out;
+  -moz-transition: all .15s ease-out;
+  transition: all .15s ease-out;
+  -webkit-transition-delay: .16s;
+  -moz-transition-delay: .16s;
+  transition-delay: .16s;
+  background-color: rgba(255, 255, 255, 0.09);
+  border-color: transparent;
+  box-shadow: none;
+  color: #FFF;
+  font-size: 18px;
+}
+.search.do-search form input.form-control::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.54);
+}
+.search.do-search form input.form-control:-moz-placeholder {
+  /* Firefox 18- */
+  color: rgba(255, 255, 255, 0.54);
+}
+.search.do-search form input.form-control::-moz-placeholder {
+  /* Firefox 19+ */
+  color: rgba(255, 255, 255, 0.54);
+}
+.search.do-search form input.form-control:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.54);
+}
+.search.do-search form input.form-control:focus {
+  background-color: rgba(255, 255, 255, 0.26);
+}
+.search.do-search form .btn {
+  -webkit-transition-delay: .16s;
+  -moz-transition-delay: .16s;
+  transition-delay: .16s;
+  background-color: transparent;
+  border-bottom-color: transparent;
+  cursor: default;
+}
+.search.do-search form .btn i {
+  -webkit-transition: -webkit-transform .15s ease-out;
+  -moz-transition: -moz-transform .15s ease-out;
+  transition: transform .15s ease-out;
+  -webkit-transition-delay: .16s;
+  -moz-transition-delay: .16s;
+  transition-delay: .16s;
+  -webkit-transform: scale(1.2, 1.2);
+  -moz-transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2);
+}
 
 .do-search-logo-leave {
-  -webkit-transition: opacity .3s ease-in, -webkit-transform .3s ease-in;
-  -moz-transition: opacity .3s ease-in, -moz-transform .3s ease-in;
-  transition: opacity .3s ease-in, transform .3s ease-in;
+  -webkit-transition: opacity .2s ease-in, -webkit-transform .2s ease-in;
+  -moz-transition: opacity .2s ease-in, -moz-transform .2s ease-in;
+  transition: opacity .2s ease-in, transform .2s ease-in;
   opacity: 1;
 }
 .do-search-logo-leave.do-search-logo-leave-active {
@@ -173,10 +216,12 @@ button.btn-primary:active, .btn.btn-primary:active {
 }
 
 .do-search-toolbar-enter {
-  -webkit-transition: all .3s ease-in;
-  -moz-transition: all .3s ease-in;
-  transition: all .3s ease-in;
-  transition-delay: .13s;
+  -webkit-transition: all .2s ease-in;
+  -moz-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+  -webkit-transition-delay: .1s;
+  -moz-transition-delay: .1s;
+  transition-delay: .1s;
   -webkit-transform: scale(0, 0);
   -moz-transform: scale(0, 0);
   transform: scale(0, 0);
