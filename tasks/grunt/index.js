@@ -1,11 +1,10 @@
 var
   fs = require('fs'),
-  tasks;
+  files = fs.readdirSync(__dirname),
+  tasks = {};
 
-tasks = fs.readdirSync(__dirname);
-
-tasks.forEach(function(task) {
-  task = task.split('.')[0];
-
-  exports[task] = require('./' + task);
+files.forEach(function(file) {
+  if (file) tasks[file.split('.')[0]] = require('./' + file);
 });
+
+module.exports = tasks;
