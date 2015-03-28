@@ -2,10 +2,9 @@ var
   React = require('react/addons'),
   ReactCSSTransitionGroup = React.addons.CSSTransitionGroup,
   Results = require('./results'),
+  ResultsHistory = require('./results_history'),
   Search = require('./search'),
   Toolbar = require('./toolbar'),
-  { SEARCH_ACTION } = require('../constants'),
-  dispatcher = require('../dispatcher'),
   h1Style,
   h2Style,
   Home;
@@ -24,20 +23,14 @@ h2Style = {
 };
 
 Home = React.createClass({
-  propTypes: {},
+  propTypes: {
+    doSearch: React.PropTypes.bool
+  },
 
-  getInitialState () {
+  getDefaultProps: function () {
     return {
       doSearch: false
     };
-  },
-
-  componentDidMount () {
-    this.dispatchToken = dispatcher.register(this.handleDispatch);
-  },
-
-  componentWillUnMount () {
-    dispatcher.unregister(this.dispatchToken);
   },
 
   render () {
@@ -46,7 +39,7 @@ Home = React.createClass({
       toolbar,
       logo;
 
-    if (!this.state.doSearch) {
+    if (!this.props.doSearch) {
       logo = (
         <div className="logo">
           <h1 style={h1Style}>Recog</h1>
@@ -72,20 +65,10 @@ Home = React.createClass({
           </ReactCSSTransitionGroup>
           <Search />
           <Results />
+          <ResultsHistory />
         </div>
       </div>
     );
-  },
-
-  handleDispatch (payload) {
-    var
-      action = payload.action;
-
-    if (action.type === SEARCH_ACTION) {
-      this.setState({
-        doSearch: true
-      })
-    }
   }
 });
 
