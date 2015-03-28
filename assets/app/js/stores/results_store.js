@@ -4,13 +4,14 @@ const
 var
   Store = require('./store'),
   { SEARCH_RESULTS_ACTION } = require('../constants'),
+  ids = 0,
   actionHandlers,
   state,
   storeTemplate;
 
 state = {
-  query: '',
-  url: ''
+  result: {},
+  history: []
 };
 
 actionHandlers = {
@@ -28,10 +29,18 @@ function getState () {
 
 function setResults (data) {
   var
-    { query, url } = data;
+    { query, url } = data,
+    id = ids++;
 
-  state.query = query;
-  state.url = url;
+  if (id) {
+    state.history.unshift(state.result);
+  }
+
+  state.result = {
+    query,
+    url,
+    id
+  };
 
   this.emitChange();
 }

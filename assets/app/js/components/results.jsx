@@ -1,5 +1,6 @@
 var
-  React = require('react'),
+  React = require('react/addons'),
+  ReactCSSTransitionGroup = React.addons.CSSTransitionGroup,
   resultsStore = require('../stores/results_store'),
   Results;
 
@@ -22,37 +23,40 @@ Results = React.createClass({
     this.setState(getState());
   },
 
+  clipboardCopy () {
+    window.prompt("Copy to clipboard: Ctrl+C (Cmd+C), Enter", this.state.url);
+  },
+
   render () {
     var
+      encodedQuery,
       results;
 
     if (this.state.query && this.state.url) {
+      encodedQuery = encodeURIComponent(this.state.query);
+
       results = (
-        <div>
-          <h4>Results</h4>
-          <div className="panel panel-default">
-            <div className="panel-body">
-              <img src={this.state.url} class="img-thumbnail" />
-              <p>{this.state.query}</p>
-              <div>
-                <button type="button" className="btn btn-default">
-                  <i className="glyphicon glyphicon-copy"></i>
-                </button>
-                <button type="button" className="btn btn-default">
-                  <i className="glyphicon glyphicon-floppy-save"></i>
-                </button>
-                <button type="button" className="btn btn-default">
-                  <i className="glyphicon glyphicon-new-window"></i>
-                </button>
-              </div>
-            </div>
+        <div className="results clearfix">
+          <div className="profile" style={{backgroundImage: 'url('+this.state.url+')'}}></div>
+          <div style={{paddingTop: 24}}>
+            <button type="button" className="btn btn-default" onClick={this.clipboardCopy}>
+              <i className="glyphicon glyphicon-copy"></i>
+            </button>
+            <a className="btn btn-default" href={`https://www.google.com/search?q=${encodedQuery}&tbm=isch`} target="_blank">
+              <i className="glyphicon glyphicon-new-window"></i>
+            </a>
+            <a className="btn btn-default" href={this.state.url} download={encodedQuery}>
+              <i className="glyphicon glyphicon-download"></i>
+            </a>
           </div>
         </div>
       );
     }
 
     return (
-      <div>{results}</div>
+      <ReactCSSTransitionGroup transitionName="display-results">
+        {results}
+      </ReactCSSTransitionGroup>
     );
   }
 });
@@ -61,10 +65,7 @@ module.exports = Results;
 
 function getState() {
   var
-    state =  resultsStore.getState();
+    { result } = resultsStore.getState();
 
-  return {
-    query: state.query,
-    url: state.url
-  };
+  return result;
 }

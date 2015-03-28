@@ -15,8 +15,12 @@ $white9: rgba($white, 0.09);
 $white6: rgba($white, 0.06);
 
 $gray-dark: #212121;
-$gray: #BDBDBD;
+$gray: #9E9E9E;
 $gray-light: #FAFAFA;
+
+$blue-gray: #607D8B;
+$blue-gray-light: #ECEFF1;
+$blue-gray-dark: #263238;
 
 $red: #F44336;
 $pink: #E91E63;
@@ -34,13 +38,13 @@ $amber: #FFC107;
 $orange: #FF9800;
 $deep-orange: #FF5722;
 
-$primary: #3F51B5;
-$primary-light: #9FA8DA;
-$primary-dark: #283593;
+$primary: #1E88E5;
+$primary-light: #E3F2FD;
+$primary-dark: #1565C0;
 
-$accent: #E91E63;
-$accent-light: #F48FB1;
-$accent-dark: #AD1457;
+$accent: #1DE9B6;
+$accent-light: #A7FFEB;
+$accent-dark: #00BFA5;
 
 $danger: $red;
 $danger-dark: #C62828;

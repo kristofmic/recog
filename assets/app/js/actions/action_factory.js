@@ -15,6 +15,8 @@ actionFactory = {
 module.exports = actionFactory;
 
 function searchAction (data) {
+  data = data || {};
+
   dispatcher.handleViewAction({
     type: SEARCH_ACTION,
     data
@@ -28,10 +30,9 @@ function searchAction (data) {
     };
 
   ajax(req)
-    .then((res) => {
-      if (res.status === 200) return res.data;
-    })
+    .then((res) => { if (res.status === 200) return res.data; })
     .then((resData) => {
+      resData = resData || {};
       assign(resData, data);
 
       dispatcher.handleServerAction({
