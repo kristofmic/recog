@@ -1,7 +1,6 @@
 var
   express = require('express'),
   router = express.Router(),
-  Bluebird = require('bluebird'),
   profiler = require('../../lib/profiler');
 
 router.get('/profile', getProfile);
@@ -12,27 +11,12 @@ function getProfile(req, res) {
   var
     email = req.query.email;
 
-  Bluebird.settle([
-    profiler.get(email),
-    profiler.get(email, {openSearch: true})
-  ])
+  profiler.get(email)
     .then(handleSuccess)
     .catch(handleError);
 
-  function handleSuccess(data) {
-    var
-      getEmailRestricted = data[0],
-      getEmailOpen = data[1];
-
-    if (getEmailRestricted.isFulfilled()) {
-      res.status(200).json({ url: getEmailRestricted.value() });
-    }
-    else if (getEmailOpen.isFulfilled()) {
-      res.status(200).json({ url: getEmailOpen.value() });
-    }
-    else {
-      return Bluebird.reject(new Error('Error retrieving profile image for ' + email));
-    }
+  function handleSuccess(url) {
+    res.status(200).json({ url: url });
   }
 
   function handleError(err) {
