@@ -1,6 +1,6 @@
 module.exports = {
   bundle: {
-    src: '<%= jsPath %>/app.jsx',
+    src: '<%= jsPath %>/app.js',
     dest: '<%= pubJsPath %>/app.bundle.js',
     options: {
       transform: ['reactify', 'babelify'],
