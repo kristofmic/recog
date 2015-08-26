@@ -51,7 +51,7 @@ function gruntConfig(grunt) {
   ]);
   grunt.registerTask('server', ['bgShell:server']);
   grunt.registerTask('default', [
-    'build:dist',
+    'build:dev',
     'env:dev',
     'server'
   ]);
